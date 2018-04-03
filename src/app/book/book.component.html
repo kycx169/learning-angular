@@ -1,3 +1,37 @@
-<p>
-  book works! 123
-</p>
+<!-- <input type="text" placeholder="sad" [(ngModel)]= "name" #txtName>
+<h3 [style.color]="name.length % 2 === 0 ? 'red' : 'blue'">{{name}}</h3>
+<div [class]="isHightLight ? 'square' : 'circle'"></div>
+<div [class.circle]="!isHighLight" [class.square]="isHighLight"></div>
+<h3 [style.color]="isHighLight ? 'green' : 'grey'">{{name}}</h3>
+<h3 [ngStyle]="name.length % 2 === 0 ? evenStyle : oddStyle" >{{name}}</h3>
+<div [ngClass]="currentClass"></div>
+<code>{{ txtName.value | json }}</code>
+<div *ngIf="isShow" [ngClass]="currentClass"></div>
+<button (click)="isShow = !isShow">Toggle isShow</button>
+
+<ul>
+    <li *ngFor="let sb of arrSubject">
+        <p>{{ "Subject: " + sb }}</p>
+    </li>
+</ul> -->
+<div *ngIf="isShowForm">
+    <input type="text" placeholder="English" [(ngModel)]="english">
+    <input type="text" placeholder="Vietnamese" [(ngModel)]="vietnamese">
+    <button (click)=a ddWord()>Them tu moi</button>
+</div>
+<button (click)="isShowForm = true" *ngIf="!isShowForm">hien thi</button>
+<br>
+<br>
+<select name="" id="" [(ngModel)]="filterStatus">
+    <option value="XEM_TAT_CA">Xem tat ca</option>
+    <option value="XEM_DA_NHO">Xem tu da nho</option>
+    <option value="XEM_CHUA_NHO">Xem tu chua nho</option>
+</select>
+<div *ngFor="let word of arrWords">
+    <div class="word-block" *ngIf="getShowStatus(word.memorized)">
+        <h4 [ngStyle]="{color: word.memorized ? 'green' : 'red'}">{{ word.en }}</h4>
+        <p>{{ word.vn }}</p>
+        <button (click)="removeWord(word.id);">Xoa</button>
+        <button (click)="word.memorized = !word.memorized">{{word.memorized ? 'chua thuoc' : 'da thuoc'}}</button>
+    </div>
+</div>
